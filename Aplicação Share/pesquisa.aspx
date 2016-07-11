@@ -52,11 +52,18 @@ tp_ID in ( SELECT tp_ID
                                    FROM WSS_Content_Chacon_20000.dbo.AllUserData
                                    where tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5' and
                                    Nvarchar1 = @evento))
-order by Nvarchar1">
+order by Nvarchar1" OnSelecting="SqlDataSource2_Selecting">
         <SelectParameters>
             <asp:ControlParameter Name="evento" ControlID="DropDownList3"
                 PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
+  
+    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nvarchar1" DataValueField="Nvarchar1" Visible="False">
+    </asp:DropDownList>
+    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+  
+    <br />
+    
   
     </asp:Content>
