@@ -26,7 +26,7 @@ order by nvarchar3 asc
                     PropertyName="SelectedValue" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Label ID="Label1" runat="server" Text="Quantidade"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Quantidade Tiche"></asp:Label>
         <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="TextBox1" runat="server" ErrorMessage="Somente Números" ValidationExpression="\d+"></asp:RegularExpressionValidator>
     </div>
