@@ -39,7 +39,7 @@ where (tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5') and
                 PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:TextBox ID="TextBox2" runat="server" Width="425px"></asp:TextBox>
+    <asp:TextBox ID="TextBox2" runat="server" Width="425px" Visible="False"></asp:TextBox>
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Calcular" />
   
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Sharepoint %>" SelectCommand="SELECT Nvarchar1
