@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> Consulta de Envento Extra</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -16,6 +16,10 @@
 
 </head>
 <body>
+<center>
+    <h1>Consulta de Evento Extra</h1>
+</center>
+    <center>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -68,5 +72,6 @@
         </div>
 
     </form>
+        </center>
 </body>
 </html>
