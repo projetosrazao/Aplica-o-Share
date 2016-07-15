@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Drawing;
 
 namespace Aplicação_Share
 {
@@ -70,5 +71,33 @@ namespace Aplicação_Share
         {
 
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            using (var printDocument = new System.Drawing.Printing.PrintDocument())
+            {
+                printDocument.PrintPage += printDocument_PrintPage;
+                printDocument.Print();
+            }
+
+        }
+
+
+
+        void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            var printDocument = sender as System.Drawing.Printing.PrintDocument;
+
+           // if (printDocument != null)
+          //  {
+           //    e.Graphics.DrawImage(System.Net.Mime.MediaTypeNames.Image.FromFile("logo.png"), new Point(5, 5));
+          //  }
+
+        }
+        }
+
+
+
+
     }
-}
