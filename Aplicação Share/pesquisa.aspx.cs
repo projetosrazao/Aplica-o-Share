@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Drawing;
 
-
 namespace Aplicação_Share
 {
     empresaExiste = false;
@@ -56,7 +55,7 @@ namespace Aplicação_Share
             { Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
                
             }
-            
+            empresaExiste = false;
 
             
         }
