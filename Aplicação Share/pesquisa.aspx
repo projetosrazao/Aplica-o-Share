@@ -92,7 +92,7 @@ order by Nvarchar1" OnSelecting="SqlDataSource2_Selecting">
     </asp:SqlDataSource>
   <div>
      </br>
-    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nvarchar1" DataValueField="Nvarchar1" Visible="False">
+    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nvarchar1" DataValueField="Nvarchar1" AutoPostBack="true" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" Height="20px" Width="900px">
     </asp:DropDownList>
     <asp:Label ID="Label2" runat="server" Text=" "></asp:Label>
   </div>

@@ -45,11 +45,14 @@ namespace Aplicação_Share
             double resultado = f * g;
             TextBox2.Text = Convert.ToString(resultado);
 
+
             bool empresaExiste = DropDownList1.Items.Cast<ListItem>().Any(r => DropDownList4.Items.Contains(r));
             if (empresaExiste == true)
-                Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança";
+            { Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança"; }
             else
-                Label2.Text = "Para este evento, a empresa selecionada pagará o valor de " +resultado;
+            { Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado; }
+
+            
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
