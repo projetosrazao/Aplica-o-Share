@@ -7,8 +7,10 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Drawing;
 
+
 namespace Aplicação_Share
 {
+    empresaExiste = false;
     public partial class pesquisa : System.Web.UI.Page
     {
             protected void Page_Load(object sender, EventArgs e)
@@ -17,6 +19,7 @@ namespace Aplicação_Share
             {
                 TextBox1.Text = "1";
             }
+            
 
         }
 
@@ -50,7 +53,10 @@ namespace Aplicação_Share
             if (empresaExiste == true)
             { Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança"; }
             else
-            { Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado; }
+            { Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
+               
+            }
+            
 
             
         }
