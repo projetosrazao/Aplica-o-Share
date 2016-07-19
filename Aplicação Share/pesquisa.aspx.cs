@@ -14,13 +14,13 @@ namespace Aplicação_Share
     {
 
         double f, g;
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
             if (TextBox1.Text == "")
             {
                 TextBox1.Text = "1";
             }
-            
+            DropDownList4_SelectedIndexChanged(null, null);
 
         }
 
@@ -30,7 +30,7 @@ namespace Aplicação_Share
 
         protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,23 +48,29 @@ namespace Aplicação_Share
             }
             catch (Exception)
             {
-
-                throw;
+                
             }
            
 
             double resultado = f * g;
             TextBox2.Text = Convert.ToString(resultado);
 
-
-            bool empresaExiste = DropDownList1.Items.Cast<ListItem>().Any(r => DropDownList4.Items.Contains(r));
-            if (empresaExiste == true)
-            { Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança"; }
-            else
-            { Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
-               
+            if (DropDownList4.Items.Count==0)
+            {
+                Label2.Text = "Para este evento, a empresa";
             }
-            empresaExiste = false;
+            else
+            {
+                bool empresaExiste = DropDownList1.Items.Cast<ListItem>().Any(r => DropDownList4.Items.Contains(r));
+                if (empresaExiste == true)
+                { Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança"; }
+                else
+                {
+                    Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
+
+                }
+            }
+           
 
             
         }
@@ -100,7 +106,10 @@ namespace Aplicação_Share
 
         }
 
-
+        protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
 
         void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {

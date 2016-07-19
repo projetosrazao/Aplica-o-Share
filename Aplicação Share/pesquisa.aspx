@@ -74,7 +74,14 @@ where (tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5') and
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Calcular" />
   </div>
         <div>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Sharepoint %>" SelectCommand="SELECT Nvarchar1
+    
+
+     </br>
+    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nvarchar1" DataValueField="Nvarchar1" AutoPostBack="true" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged" Height="20px" Width="900px">
+   
+         </asp:DropDownList>
+
+      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Sharepoint %>" SelectCommand="SELECT Nvarchar1
 FROM WSS_Content_Chacon_20000.dbo.UserData
 
 where tp_ListId = '18DD5587-9C47-4159-8356-917A79EC81B1' and
@@ -90,10 +97,6 @@ order by Nvarchar1" OnSelecting="SqlDataSource2_Selecting">
                 PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
-  <div>
-     </br>
-    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nvarchar1" DataValueField="Nvarchar1" AutoPostBack="true" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" Height="20px" Width="900px">
-    </asp:DropDownList>
     <asp:Label ID="Label2" runat="server" Text=" "></asp:Label>
   </div>
     </br>
