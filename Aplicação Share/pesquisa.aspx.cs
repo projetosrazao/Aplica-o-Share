@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Drawing;
+using System.Data.SqlClient;
 
 namespace Aplicação_Share
 {
@@ -20,21 +21,35 @@ namespace Aplicação_Share
             {
                 TextBox1.Text = "1";
             }
-            
 
+            DropDownList4_SelectedIndexChanged(null, null);
         }
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
 
-        protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
+        public void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
+            string conexao = "Data Source=CHACON\\CHACON;Integrated Security=False;User ID=razao;Password=da7Bb%10;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conecta = new SqlConnection(conexao);
+            conecta.Open();
+            string pesquisa = "SELECT tp_ID,tp_Title FROM WSS_Content_Chacon_20000.dbo.AllLists";
+
+            SqlCommand cmd = new SqlCommand(pesquisa, conecta);
+            
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                DropDownList4.Items.Add(dr.GetSqlString.ToString());
+            }
+            conecta.Close();
             try
             {
                 DataSourceSelectArguments sr = new DataSourceSelectArguments();
@@ -100,7 +115,10 @@ namespace Aplicação_Share
 
         }
 
+        protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
 
         void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
