@@ -40,14 +40,20 @@ namespace Aplicação_Share
             string conexao = "Data Source=CHACON\\CHACON;Integrated Security=False;User ID=razao;Password=da7Bb%10;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection conecta = new SqlConnection(conexao);
             conecta.Open();
-            string pesquisa = "SELECT tp_ID,tp_Title FROM WSS_Content_Chacon_20000.dbo.AllLists";
+            string pesquisa = "SELECT Nvarchar1 FROM WSS_Content_Chacon_20000.dbo.UserData" +
+                " where tp_ListId = '18DD5587-9C47-4159-8356-917A79EC81B1' and" +
+                " tp_ID in ( SELECT tp_ID FROM WSS_Content_Chacon_20000.dbo.AllUserDataJunctions" +
+                " where tp_DocID = ( SELECT tp_DocId FROM WSS_Content_Chacon_20000.dbo.AllUserData" +
+                " where tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5' and" +
+                " Nvarchar1 = " + "'" + DropDownList3.SelectedValue + "')) order by Nvarchar1 ";
+
 
             SqlCommand cmd = new SqlCommand(pesquisa, conecta);
             
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                DropDownList4.Items.Add(dr.GetSqlString.ToString());
+                DropDownList4.Items.Add(String.Format("{0} \t",dr[0]));
             }
             conecta.Close();
             try
@@ -71,8 +77,8 @@ namespace Aplicação_Share
             double resultado = f * g;
             TextBox2.Text = Convert.ToString(resultado);
 
-
-            bool empresaExiste = DropDownList1.Items.Cast<ListItem>().Any(r => DropDownList4.Items.Contains(r));
+            bool empresaExiste = false;
+             empresaExiste = DropDownList1.Items.Cast<ListItem>().Any(r => DropDownList4.Items.Contains(r));
             if (empresaExiste == true)
             { Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança"; }
             else
