@@ -76,8 +76,6 @@ where (tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5') and
   <div>
     
     <asp:Label ID="Label2" runat="server" Text=" "></asp:Label>
-      <asp:DropDownList ID="DropDownList4" runat="server">
-      </asp:DropDownList>
   </div>
 </center>
 </asp:Content>

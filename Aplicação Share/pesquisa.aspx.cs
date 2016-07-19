@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Drawing;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace Aplicação_Share
 {
@@ -49,11 +50,11 @@ namespace Aplicação_Share
 
 
             SqlCommand cmd = new SqlCommand(pesquisa, conecta);
-            
+            ArrayList lista = new ArrayList();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                DropDownList4.Items.Add(String.Format("{0} \t",dr[0]));
+                lista.Add(String.Format("{0}", dr[0]));
             }
             conecta.Close();
             try
@@ -77,17 +78,17 @@ namespace Aplicação_Share
             double resultado = f * g;
             TextBox2.Text = Convert.ToString(resultado);
 
-            bool empresaExiste = false;
-             empresaExiste = DropDownList1.Items.Cast<ListItem>().Any(r => DropDownList4.Items.Contains(r));
-            if (empresaExiste == true)
-            { Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança"; }
-            else
-            { Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
-               
-            }
-            empresaExiste = false;
-
+            string empresaEscolhida = DropDownList1.SelectedValue;
             
+
+            if (lista.Contains(empresaEscolhida)){
+                Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança";
+            }
+            else
+            {
+                Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
+            }
+
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
