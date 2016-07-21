@@ -71,7 +71,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer> <center>
-                <p> <%: DateTime.Now.Year %> - Razão Envel</p>
+                <p> <%: DateTime.Now.Year %> - TI Razão Envel</p>
                 </center>
             </footer>
         </div>
