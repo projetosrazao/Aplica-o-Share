@@ -62,32 +62,41 @@ namespace Aplicação_Share
                 DataSourceSelectArguments sr = new DataSourceSelectArguments();
                 DataView dv = (DataView)SqlDataSource1.Select(sr);
                 if (dv.Count != 0)
+                {
                     dv[0][0].ToString();
 
-                g = Convert.ToDouble(TextBox1.Text);
-                f = Convert.ToDouble(dv[0][0].ToString());
+                    g = Convert.ToDouble(TextBox1.Text);
+                    f = Convert.ToDouble(dv[0][0].ToString());
+
+                    double resultado = f * g;
+                    TextBox2.Text = Convert.ToString(resultado);
+
+                    string empresaEscolhida = DropDownList1.SelectedValue;
+
+
+                    if (lista.Contains(empresaEscolhida))
+                    {
+                        Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança";
+                    }
+                    else
+                    {
+                        Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
+                    }
+                }
+                else
+                {
+                    Label2.Text = "Evento com valor inválido";
+                }
 
             }
-            catch (Exception)
+            catch (FormatException)
             {
 
-                throw;
+                Label2.Text = "Evento com valor inválido";
             }
            
 
-            double resultado = f * g;
-            TextBox2.Text = Convert.ToString(resultado);
-
-            string empresaEscolhida = DropDownList1.SelectedValue;
             
-
-            if (lista.Contains(empresaEscolhida)){
-                Label2.Text = "Para este evento, a empresa selecionada é isenta de cobrança";
-            }
-            else
-            {
-                Label2.Text = "Para este evento, a empresa selecionada pagará o valor de R$" + resultado;
-            }
 
         }
 
@@ -127,6 +136,11 @@ namespace Aplicação_Share
 
         }
 
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+
+        }
+
         void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             var printDocument = sender as System.Drawing.Printing.PrintDocument;
@@ -138,6 +152,7 @@ namespace Aplicação_Share
 
         }
         }
+
 
 
 

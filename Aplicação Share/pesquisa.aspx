@@ -35,7 +35,7 @@ order by nvarchar3 asc
 
         <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="Combobox3" DataTextField="nvarchar1" DataValueField="nvarchar1" AutoPostBack="true" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" Height="20px" Width="900px">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="Combobox3" runat="server" ConnectionString="<%$ ConnectionStrings:Sharepoint %>" SelectCommand="SELECT nvarchar1 FROM AllUserData WHERE (tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5') AND (nvarchar3 = @RoleID)">
+        <asp:SqlDataSource ID="Combobox3" runat="server" ConnectionString="<%$ ConnectionStrings:Sharepoint %>" SelectCommand="SELECT nvarchar1 FROM AllUserData WHERE (tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5') AND (nvarchar3 = @RoleID) order by nvarchar1">
             <SelectParameters>
                 <asp:ControlParameter Name="RoleID" ControlID="DropDownList2"
                     PropertyName="SelectedValue" />
@@ -51,7 +51,10 @@ order by nvarchar3 asc
     <div>
         
         <asp:TextBox ID="TextBox1" runat="server" Height="20px" Width="900px" ></asp:TextBox>
-        </br>
+        
+
+        <br />
+        
 
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="TextBox1" runat="server" ErrorMessage="*Esse campo aceita apenas números." ValidationExpression="\d+"></asp:RegularExpressionValidator>
         
@@ -71,7 +74,11 @@ where (tp_ListId = 'A974794E-7DD7-4321-9BC5-AFAC16588FF5') and
     <asp:TextBox ID="TextBox2" runat="server" Width="425px" Visible="False"></asp:TextBox>
    
          <br />
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Calcular" />
+   
+         <br />
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Calcular" Width="100px"/>
+        <br />
+        <br />
   </div>
   <div>
     
